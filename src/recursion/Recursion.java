@@ -21,7 +21,7 @@ public class Recursion {
     public static void printBackward(SinglyLinkedList sllIn)
     {
         SinglyLinkedList sll = new SinglyLinkedList();
-        
+        sll = (SinglyLinkedList)sllIn.clone();
         if(sll.getLength() == 1)
         {
             System.out.println(sll.find(0).getElement().toString());

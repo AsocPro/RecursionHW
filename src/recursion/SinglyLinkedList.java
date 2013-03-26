@@ -14,6 +14,8 @@
  * 
  * Added public void printedFindAll(E element)
  * This method is find all but instead of returning a singly linked list it prints found items.
+ * 
+ * Implemented Cloneable to clone the SLL.
  */
 package recursion;
 
@@ -21,7 +23,7 @@ package recursion;
  *
  * @author zachary
  */
-public class SinglyLinkedList <E>
+public class SinglyLinkedList <E> implements Cloneable
 {
     private SLNode<E> head;
     private SLNode<E> tail;
@@ -217,5 +219,17 @@ public class SinglyLinkedList <E>
     public int getLength()
     {
         return length;
+    }
+    @Override
+    public SinglyLinkedList<E> clone()
+    {
+        SinglyLinkedList<E> sll = new SinglyLinkedList<>();
+        SLNode<E> node = this.head.getSuccessor();
+        while(node.getElement() != null)
+        {
+            sll.addAtTail(node.getElement());
+            node = node.getSuccessor();
+        }
+        return sll;
     }
 }
