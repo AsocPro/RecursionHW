@@ -6,6 +6,8 @@
  * 
  * Description: This program prints out a singly linked list backward with the
  * help of recursion.
+ * It works by making a deep clone of the list and then removing the first 
+ * element and sending the list into the method again recursively.
  */
 package recursion;
 
@@ -18,10 +20,10 @@ public class Recursion {
      * Prints a singly linked list backward recursively
      * @param sll The singly linked list to print backward.
      */
-    public static void printBackward(SinglyLinkedList sllIn)
+    public static void printBackward(SinglyLinkedList<String> sllIn)
     {
-        SinglyLinkedList sll = new SinglyLinkedList();
-        sll = (SinglyLinkedList)sllIn.clone();
+        SinglyLinkedList<String> sll = new SinglyLinkedList<>();
+        sll = (SinglyLinkedList<String>)sllIn.clone();
         if(sll.getLength() == 1)
         {
             System.out.println(sll.find(0).getElement().toString());
@@ -43,7 +45,5 @@ public class Recursion {
         sll.traverse();
         System.out.println("Backward");
         printBackward(sll);
-        System.out.println("again");
-        sll.traverse();
     }
 }

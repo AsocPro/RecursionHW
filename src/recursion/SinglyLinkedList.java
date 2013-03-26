@@ -148,7 +148,7 @@ public class SinglyLinkedList <E> implements Cloneable
     public void addAtTail(E element)
     {
         SLNode<E> newNode = new SLNode<>(element, null);
-        if(length<0)
+        if(length>0)
         {
             SLNode<E> lastNode = find(this.length-1);
             newNode.setSuccessor(lastNode.getSuccessor());
@@ -220,6 +220,10 @@ public class SinglyLinkedList <E> implements Cloneable
     {
         return length;
     }
+    /**
+     * Clone method Overriden to make a deep copy
+     * @return Deep copy of the list.
+     */
     @Override
     public SinglyLinkedList<E> clone()
     {
